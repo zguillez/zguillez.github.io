@@ -1,6 +1,6 @@
 'use strict';
 
-define(['react'], function (React) {
+define(['react', 'components/header', 'components/footer'], function (React, Header, Footer) {
 	'use strict';
 	var Content = React.createClass({
 		displayName: 'Content',
@@ -29,18 +29,24 @@ define(['react'], function (React) {
 		},
 		render: function render() {
 			return React.createElement(
-				'section',
-				{ className: 'content' },
+				'div',
+				{ className: 'container' },
+				React.createElement(Header, null),
 				React.createElement(
-					'header',
-					null,
-					React.createElement('img', { src: 'images/reactjs.png', className: 'logo' })
+					'section',
+					{ className: 'content' },
+					React.createElement(
+						'header',
+						null,
+						React.createElement('img', { src: 'images/reactjs.png', className: 'logo' })
+					),
+					React.createElement(
+						'div',
+						{ className: 'buttons row' },
+						this.state.libs
+					)
 				),
-				React.createElement(
-					'div',
-					{ className: 'buttons row' },
-					this.state.libs
-				)
+				React.createElement(Footer, null)
 			);
 		}
 	});

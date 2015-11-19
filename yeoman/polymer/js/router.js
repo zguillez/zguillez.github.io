@@ -1,7 +1,7 @@
 'use strict';
 define(['page', 'jquery'], function(Page, $) {
 	'use strict';
-	Page.base('/yeoman/polymer');
+	Page.base('yeoman/polymer/');
 	Page('/', index);
 	Page();
 

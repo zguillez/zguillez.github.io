@@ -1,26 +1,15 @@
-'use strict';
-
-define(['page', 'react', 'react_dom'], function (Page, React, ReactDOM) {
+define(['controllers', 'directives'], function() {
 	'use strict';
-	Page.base('');
-	Page('/', index);
-	Page();
-
-	function index(ctx) {
-		if (ctx.hash !== '') {
-			Page(ctx.hash);
-		} else {
-			landing();
+	window.app.config(['$routeProvider',
+		function($routeProvider) {
+			$routeProvider.
+			when('/', {
+				templateUrl: 'templates/index.html',
+				controller: 'indexController'
+			}).
+			otherwise({
+				redirectTo: '/'
+			});
 		}
-	}
-
-	function landing() {
-		loadComponent('../js/components/landing');
-	}
-
-	function loadComponent(path) {
-		require([path], function (Component) {
-			ReactDOM.render(React.createElement(Component, null), document.getElementById('app'));
-		});
-	}
+	]);
 });

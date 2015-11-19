@@ -1,8 +1,7 @@
 'use strict';
-
-define(['page', 'react', 'react_dom'], function (Page, React, ReactDOM) {
+define(['page', 'react', 'react_dom'], function(Page, React, ReactDOM) {
 	'use strict';
-	Page.base('');
+	Page.base('/yeoman/reactjs/');
 	Page('/', index);
 	Page();
 
@@ -19,7 +18,7 @@ define(['page', 'react', 'react_dom'], function (Page, React, ReactDOM) {
 	}
 
 	function loadComponent(path) {
-		require([path], function (Component) {
+		require([path], function(Component) {
 			ReactDOM.render(React.createElement(Component, null), document.getElementById('app'));
 		});
 	}

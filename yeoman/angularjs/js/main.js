@@ -1,20 +1,20 @@
 'use strict';
 require.config({
 	paths: {
+		routes: './routes',
 		text: '../lib/text',
-		react: '../lib/react',
-		jsx: '../lib/jsx',
-		react_dom: '../lib/react-dom',
-		page: '../lib/page/page',
-		underscore: '../lib/lodash.min',
+		angular: '../lib/angular.min',
+		angularrouter: '../lib/angular-route.min',
 		jquery: '../lib/jquery.min',
-		bootstrap: '../lib/bootstrap.min',
-		router: './router'
+		bootstrap: '../lib/bootstrap.min'
 	}
 });
 window.app = {};
-require(['react', 'jquery', 'underscore'], function (React, $, _) {
-	require(['react_dom', 'bootstrap'], function (ReactDOM, Bootstrap) {
-		require(['router']);
+require(['angular', 'jquery'], function() {
+	require(['angularrouter', 'bootstrap'], function() {
+		window.app = angular.module('App', ['ngRoute']);
+		require(['router'], function() {
+			angular.bootstrap(document, ['App']);
+		});
 	});
 });

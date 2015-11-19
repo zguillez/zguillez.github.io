@@ -1,8 +1,7 @@
 'use strict';
-
-define(['page', 'jquery'], function (Page, $) {
+define(['page', 'jquery'], function(Page, $) {
 	'use strict';
-	Page.base('');
+	Page.base('/yeoman/polymer/');
 	Page('/', index);
 	Page();
 
@@ -19,7 +18,7 @@ define(['page', 'jquery'], function (Page, $) {
 	}
 
 	function loadComponent(path) {
-		$.get(path, function (data) {
+		$.get(path, function(data) {
 			$('#app').html(data);
 		});
 	}

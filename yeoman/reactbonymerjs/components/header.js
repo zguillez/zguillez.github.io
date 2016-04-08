@@ -12,7 +12,7 @@
 	});
 });*/
 
-define(['react', '../../components/templates/header'], function (React, template) {
+define(['react', '../../../components/templates/header'], function (React, template) {
 	'use strict';
 
 	return React.createClass({

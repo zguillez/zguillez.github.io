@@ -1,0 +1,34 @@
+<link rel="import" href="../lib/polymer.html">
+<dom-module id="logos-element">
+    <template>
+        <style>
+        .img {
+            max-height: 50px;
+            max-width: 180px;
+            margin: 0 10px;
+        }
+        </style>
+        <template is="dom-repeat" items="{{frameworks_arr}}">
+            <img class="img" src="../images/{{item}}.png" />
+        </template>
+    </template>
+    <script>
+    Polymer({
+        is: 'logos-element',
+        properties: {
+            frameworks: {
+                type: String,
+                observer: '_frameworksChanged'
+            },
+            frameworks_arr: {
+                type: Array,
+                value: []
+            }
+        },
+        ready: function() {
+            this.frameworks_arr = this.frameworks.split(",");
+        },
+        _frameworksChanged: function() {}
+    });
+    </script>
+</dom-module>

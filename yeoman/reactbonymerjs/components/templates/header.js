@@ -5,7 +5,7 @@ define(['react', 'underscore'], function (React, _) {
 
     return function () {
         return React.createElement('img', {
-            'src': '../images/yeoman.png',
+            'src': './images/yeoman.png',
             'style': this.styles.logo
         });
     };
